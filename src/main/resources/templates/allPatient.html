@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center">
+		<h2>All Patient</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Address</th>
+					<th>Phone</th>
+					<th>Age</th>
+					<th>Weight</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="patient:${listPatient}">
+					<td th:text="${patient.id}" />
+					<td th:text="${patient.name}" />
+					<td th:text="${patient.address}" />
+					<td th:text="${patient.phoneNo}" />
+					<td th:text="${patient.age}" />
+					<td th:text="${patient.weight}" />
+					<td><a th:href="@{'/edit/' + ${patient.id}}" >Edit</a> 
+						&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/delete/' + ${patient.id}}" >Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+	</div>
+
+</body>
+</html>
