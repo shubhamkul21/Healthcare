@@ -14,19 +14,22 @@ public class Patient {
 	private String address;
 	private long phoneNo;
 	private int age;
-	private int weight;
+	private String emailId;
+	private String password;
+
 	public Patient() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Patient(Long id, String name, String address, long phoneNo, int age, int weight) {
+
+	public Patient(Long id, String name, String address, long phoneNo, int age, String emailId, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.phoneNo = phoneNo;
 		this.age = age;
-		this.weight = weight;
+		this.emailId = emailId;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -69,13 +72,22 @@ public class Patient {
 		this.age = age;
 	}
 
-	public int getWeight() {
-		return weight;
+	public String getEmailId() {
+		return emailId;
 	}
 
-	public void setWeight(int weight) {
-		this.weight = weight;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	
 	
 }
