@@ -3,44 +3,71 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>All Patient</title>
+<style>
+*{
+box-sizing: border-box;
+}
+img {
+	opacity: 0.4;
+	width: 100%;
+	height: 900px;
+}
+
+.container {
+	position: relative;
+	position: absolute;
+	align: center;
+	margin-left: 20%;
+	top: 20%;
+	bottom: 50%;
+	left: 30%;
+	transform: translate(-50%, -50%);
+	font-size: 18px;
+}
+</style>
+
+
+
 </head>
 <body>
-	<div align="center">
-		<h2>All Patient</h2>   
-		<a href="patient">Go Back</a><br>
-		<br>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Name</th>
-					<th>Address</th>
-					<th>Phone</th>
-					<th>Age</th>
-					<th>Email Id</th>
-					<th>Password</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="patient:${listPatient}">
-					<td th:text="${patient.id}" />
-					<td th:text="${patient.name}" />
-					<td th:text="${patient.address}" />
-					<td th:text="${patient.phoneNo}" />
-					<td th:text="${patient.age}" />
-					<td th:text="${patient.emailId}" />
-					<td th:text="${patient.password}" />
-					<td><a th:href="@{'/edit/' + ${patient.id}}" >Edit</a> 
-						&nbsp;&nbsp;&nbsp;
-						<a th:href="@{'/delete/' + ${patient.id}}" >Delete</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+	<img
+		src="https://thumbs.dreamstime.com/b/team-group-doctors-nurses-medicine-healthcare-concept-43916218.jpg">
+	<div class="container" >
 
+		<div align="center">
+			<h2>All Patient</h2>
+			<a href="admin">Go Back</a><br> <br>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Phone</th>
+						<th>Age</th>
+						<th>Email Id</th>
+						<th>Password</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="patient:${listPatient}">
+						<td th:text="${patient.id}" />
+						<td th:text="${patient.name}" />
+						<td th:text="${patient.address}" />
+						<td th:text="${patient.phoneNo}" />
+						<td th:text="${patient.age}" />
+						<td th:text="${patient.emailId}" />
+						<td th:text="${patient.password}" />
+						<td><a th:href="@{'/editParient/' + ${patient.id}}">Edit</a>
+							&nbsp;&nbsp;&nbsp; <a
+							th:href="@{'/deletePatient/' + ${patient.id}}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
 
+		</div>
 
 	</div>
 

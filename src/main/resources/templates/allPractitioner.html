@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
+	xmlns:th="http://www.thymeleaf.org"><head>
 <meta charset="ISO-8859-1">
-<title>All Patient</title>
+<title>All Practitioner</title>
 <style>
 *{
 box-sizing: border-box;
@@ -13,7 +12,9 @@ img {
 	width: 100%;
 	height: 900px;
 }
-
+h2{
+color: red;
+}
 .container {
 	position: relative;
 	position: absolute;
@@ -26,17 +27,13 @@ img {
 	font-size: 18px;
 }
 </style>
-
-
-
 </head>
 <body>
 	<img
 		src="https://thumbs.dreamstime.com/b/team-group-doctors-nurses-medicine-healthcare-concept-43916218.jpg">
-	<div class="container" >
-
+	<div class="container">
 		<div align="center">
-			<h2>All Patient</h2>
+			<h2>All Practitioner</h2>
 			<a href="admin">Go Back</a><br> <br>
 			<table border="1">
 				<thead>
@@ -45,24 +42,25 @@ img {
 						<th>Name</th>
 						<th>Address</th>
 						<th>Phone</th>
-						<th>Age</th>
+						<th>Specialist</th>
 						<th>Email Id</th>
 						<th>Password</th>
 						<th>Action</th>
+
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="patient:${listPatient}">
-						<td th:text="${patient.id}" />
-						<td th:text="${patient.name}" />
-						<td th:text="${patient.address}" />
-						<td th:text="${patient.phoneNo}" />
-						<td th:text="${patient.age}" />
-						<td th:text="${patient.emailId}" />
-						<td th:text="${patient.password}" />
-						<td><a th:href="@{'/editParient/' + ${patient.id}}">Edit</a>
+					<tr th:each="practitioner:${listPractitioner}">
+						<td th:text="${practitioner.id}" />
+						<td th:text="${practitioner.name}" />
+						<td th:text="${practitioner.address}" />
+						<td th:text="${practitioner.phoneNo}" />
+						<td th:text="${practitioner.specialist}" />
+						<td th:text="${practitioner.emailId}" />
+						<td th:text="${practitioner.password}" />
+						<td><a th:href="@{'/editPractitioner/' + ${practitioner.id}}">Edit</a>
 							&nbsp;&nbsp;&nbsp; <a
-							th:href="@{'/deletePatient/' + ${patient.id}}">Delete</a></td>
+							th:href="@{'/deletePractitioner/' + ${practitioner.id}}">Delete</a></td>
 					</tr>
 				</tbody>
 			</table>

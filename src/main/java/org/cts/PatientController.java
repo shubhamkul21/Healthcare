@@ -2,6 +2,10 @@ package org.cts;
 
 import java.util.List;
 
+import org.cts.dao.Doctor;
+import org.cts.dao.Patient;
+import org.cts.service.DoctorService;
+import org.cts.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,8 @@ public class PatientController {
 	@Autowired 
 	private PatientService patientService;
 	
+	
+	//Patient
 	@GetMapping("/")
 	public String viewHomePage() {
 		return "index";
@@ -44,24 +50,23 @@ public class PatientController {
 		model.addAttribute("listPatient", listPatient);
 		return "allPatient";
 	}
-	@RequestMapping("/edit/{id}")
+	@RequestMapping("/editParient/{id}")
 	public ModelAndView viewEditPatientPage(@PathVariable(name = "id") int id) {
 		ModelAndView mav=new ModelAndView("editPatient");
 		Patient patient=patientService.get(id);
 		mav.addObject("patient", patient);
 		return mav;
 	}
-	@PostMapping("/editPatient")
+	@PostMapping("/updatePatient")
 	public String editPatient(@ModelAttribute("patient") Patient patient) {
 		patientService.save(patient);
 		return "redirect:/allPatient";		
 	}
-	@RequestMapping("/delete/{id}")
+	@RequestMapping("/deletePatient/{id}")
 	public String deletePatient(@PathVariable(name = "id") int id) {
 		patientService.delete(id);
 		return "redirect:/allPatient";
-	}
-	
+	}	
 	
 	
 	

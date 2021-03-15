@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>New Doctor</title>
+
+<style>
+*{
+box-sizing: border-box;
+}
+body {
+	background-color: black;
+}
+
+img {
+	width: 100%;
+	height: 700px;
+	opacity: 0.5;
+}
+
+.container {
+	align: "center";
+	display: "inline-block";
+	padding-left: 40%;
+	border: 10px;
+	border-color: black;
+}
+
+.container {
+	position: relative;
+	position: absolute;
+	top: 20%;
+	bottom: 50%;
+	left: 30%;
+	transform: translate(-50%, -50%);
+	font-size: 18px;
+}
+
+.signup-form {
+	font-family: "Roboto", sans-serif;
+	width: 400px;
+	margin-left: 50px auto;
+	text-align: "center";
+	tealign-left: 350px;
+	background: linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);;
+	border-radius: 10px;
+}
+
+a {
+	align: "center";
+}
+
+.form-header {
+	align: "center";
+	background-color: #eff0f1;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.form-header h1 {
+	font-size: 30px;
+	text-align: center;
+	color: #666;
+	padding: 20px 0;
+	border-bottom: 1px solid #cccccc;
+}
+
+.form-body .label-title {
+	color: #1bba93;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.form-body .form-input {
+	font-size: 17px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 34px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #333333;
+	text-align: left;
+	border: 1px solid #d6d6d6;
+	border-radius: 4px;
+	background: white;
+	outline: none;
+}
+
+.goback {
+	text-align: "right";
+	margin-left: 110px;
+}
+
+.add {
+	margin-left: 100px;
+}
+</style>
+
+</head>
+<body>
+	 <img class="mySlides" src="https://blog.ipleaders.in/wp-content/uploads/2018/02/BV-Acharya-3.jpg" />
+	<div class="container">
+		<a href="doctor" class="goback">Go Back</a><br>
+		<form class="signup-form" action="#" th:action="@{/savePractitioner}"
+			th:object="${practitioner}" method="post">
+			<div class="form-header">
+				<h1>Practitioner Registration</h1>
+			</div>
+
+			<br> <br>
+
+			<div class="form-body">
+
+				<table border="0" cellpadding="10">
+					<tr>
+						<td>Name</td>
+						<td><input type="text" placeholder="Enter your name"
+							th:field="*{name}" class="form-input" /></td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td><input type="text" placeholder="Enter your address"
+							th:field="*{address}" class="form-input" /></td>
+					</tr>
+					<tr>
+						<td>Phone</td>
+						<td><input type="number"
+							placeholder="Enter your phone number" th:field="*{phoneNo}"
+							class="form-input" /></td>
+					</tr>
+					<tr>
+						<td>Specialist</td>
+						<td><input type="text" placeholder="Enter the field"
+							th:field="*{specialist}" class="form-input" /></td>
+					</tr>
+
+					
+
+					<tr>
+						<td>Email Id</td>
+						<td><input type="email" placeholder="Enter your Email Id"
+							th:field="*{emailId}" class="form-input" /></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><input type="password" placeholder="Enter your password"
+							th:field="*{password}" class="form-input" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Register"
+							class="add"></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+
+	</div>
+</body>
+</html>
